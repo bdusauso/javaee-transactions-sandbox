@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
-    <persistence-unit name="myPU">
-        <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+    <persistence-unit name="sandbox-tx" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>sandbox.transactionDatasource</jta-data-source>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.show_sql" value="true"/>
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+            <property name="eclipselink.logging.logger" value="DefaultLogger"/
         </properties>
     </persistence-unit>
 </persistence>
