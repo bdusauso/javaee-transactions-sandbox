@@ -7,6 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("hello")
 public class HelloResource {
@@ -15,8 +16,9 @@ public class HelloResource {
     private HelloBean helloBean;
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String sayHello() {
-        return helloBean.sayHello();
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response sayHello() {
+        return Response.ok(helloBean.sayHello()).build();
     }
 }
