@@ -19,6 +19,6 @@ public class HelloResource {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     public Response sayHello() {
-        return Response.ok(helloBean.sayHello()).build();
+        return Response.ok(helloBean.getTask(1L)).build();
     }
 }
