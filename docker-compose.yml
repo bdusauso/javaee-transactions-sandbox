@@ -23,9 +23,9 @@ services:
       dockerfile: ./Dockerfile
     image: centran/first-weblogic-wl122-dev:latest
     ports:
-      - "7273:7272" #http port
-      - "7281:7009" #remote debug port
-      - "7212:7010" #jmx port
+      - "7272:7272" #http port
+      - "7281:7008" #remote debug port
+      - "7212:7009" #jmx port
     environment:
       - WEBLOGIC_PORT=7272
     volumes:
