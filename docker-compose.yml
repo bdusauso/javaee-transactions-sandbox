@@ -11,8 +11,28 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      - main_main_default
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  weblogic:
+    build:
+      context: ../docker/weblogic
+      dockerfile: ./Dockerfile
+    image: centran/first-weblogic-wl122-dev:latest
+    ports:
+      - "7273:7272" #http port
+      - "7281:7009" #remote debug port
+      - "7212:7010" #jmx port
+    environment:
+      - WEBLOGIC_PORT=7272
+    volumes:
+      - /weblogic/Oracle/Middleware/Oracle_Home/user_projects/domains/base_domain/config
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
   postgres_data:
