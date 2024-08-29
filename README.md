@@ -5,7 +5,8 @@ This project aims to illustrate the different uses of transactions within JavaEE
 ## Installation
 
 ### Docker
-Run the Postgres and WebLogic containers
+First, be sure that no other WebLogic instance is runnin, it could cause interferences, especially with ports.
+Then, run the Postgres and WebLogic containers:
 
 ```
 docker compose up -d
@@ -27,18 +28,6 @@ Then create a new XA datasource for PostgreSQL:
     - Username: javaee
     - Password: javaee
 - Finally, test the connection to see if everything's ok
-
-### The database
-Using your favorite DB editor, create the table
-
-```sql
-create table tasks (
-	id serial primary key,
-	name varchar(255) not null,
-	status varchar(255) not null
-);
-alter sequence tasks_id_seq increment by 5;
-```
 
 ### Deploy the application
 Launch:
