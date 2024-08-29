@@ -24,8 +24,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class TaskEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_task")
-    @SequenceGenerator(name = "seq_task", sequenceName = "tasks_id_seq", allocationSize = 5)
+    @GeneratedValue
     @Column(name = "id")
     private Long id;
 
