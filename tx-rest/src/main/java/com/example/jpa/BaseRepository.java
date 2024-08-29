@@ -3,6 +3,7 @@ package com.example.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Optional;
 
 public abstract class BaseRepository<T> implements Repository<T> {
 
@@ -39,8 +40,9 @@ public abstract class BaseRepository<T> implements Repository<T> {
      * @param clazz class
      * @return entity
      */
-    public T findById(Long id, Class<T> clazz) {
-        return getEm().find(clazz, id);
+    public Optional<T> findById(Long id, Class<T> clazz) {
+        T object = getEm().find(clazz, id);
+        return Optional.ofNullable(object);
     }
 
     /**

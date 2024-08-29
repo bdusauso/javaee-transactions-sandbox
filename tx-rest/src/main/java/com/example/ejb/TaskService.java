@@ -5,13 +5,14 @@ import com.example.jpa.TaskRepository;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.Optional;
 
 @Stateless
 public class TaskService {
     @Inject
     private TaskRepository taskRepository;
 
-    public TaskEntity getTask(Long id) {
+    public Optional<TaskEntity> getTask(Long id) {
         return taskRepository.findById(id, TaskEntity.class);
     }
 

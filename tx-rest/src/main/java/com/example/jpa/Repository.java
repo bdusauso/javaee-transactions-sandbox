@@ -1,5 +1,7 @@
 package com.example.jpa;
 
+import java.util.Optional;
+
 public interface Repository<T> {
     /**
      * persist a entity in DB
@@ -15,7 +17,7 @@ public interface Repository<T> {
      * @param clazz class
      * @return entity
      */
-    T findById(Long id, Class<T> clazz);
+    Optional<T> findById(Long id, Class<T> clazz);
 
     /**
      * Flush current changes

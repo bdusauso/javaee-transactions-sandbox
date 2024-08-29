@@ -5,26 +5,28 @@ import com.example.jpa.TaskEntity;
 import com.example.jpa.TaskStatus;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Optional;
 
-@Path("hello")
-public class HelloResource {
+@Path("tasks")
+public class TaskResource {
 
     @Inject
     private TaskService taskService;
 
     @GET
-    @Path("/")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response sayHello() {
-        TaskEntity task = taskService.getTask(1L);
-        return Response.ok(task).build();
+    public Response getTask(@PathParam("id") Long id) {
+        return taskService.getTask(id)
+                          .map(taskEntity -> Response.ok(taskEntity).build())
+                          .orElse(Response.status(404).build());
     }
 
     @POST
