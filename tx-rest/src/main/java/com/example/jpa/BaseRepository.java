@@ -27,8 +27,9 @@ public abstract class BaseRepository<T> implements Repository<T> {
      *
      * @param o Object to persist
      */
-    public void save(T o) {
+    public T save(T o) {
         em.persist(o);
+        return o;
     }
 
     /**

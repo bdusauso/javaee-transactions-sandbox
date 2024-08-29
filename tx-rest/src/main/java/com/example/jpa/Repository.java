@@ -6,7 +6,7 @@ public interface Repository<T> {
      *
      * @param o Object to persist
      */
-    void save(T o);
+    T save(T o);
 
     /**
      * Find entity by id
