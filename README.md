@@ -1,4 +1,4 @@
-# JavaEE Transaction Course
+# JavaEE Transaction Workshop
 
 ## Important
 This code relies heavily on artifacts specific to the SPF Finances/FOD Financieen.
