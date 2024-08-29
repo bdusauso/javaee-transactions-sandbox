@@ -1,6 +1,5 @@
-package com.example.jpa;
+package eu.codinsanity.core.jpa.data;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -11,18 +10,15 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tasks")
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class TaskEntity {
+public class Task {
     @Id
     @GeneratedValue
     @Column(name = "id")

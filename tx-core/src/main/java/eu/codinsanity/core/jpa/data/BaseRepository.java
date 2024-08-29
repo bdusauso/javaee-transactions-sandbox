@@ -1,4 +1,4 @@
-package com.example.jpa;
+package eu.codinsanity.core.jpa.data;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

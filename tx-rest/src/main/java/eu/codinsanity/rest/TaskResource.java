@@ -1,8 +1,9 @@
-package com.example.rest;
+package eu.codinsanity.rest;
 
-import com.example.ejb.TaskService;
-import com.example.jpa.TaskEntity;
-import com.example.jpa.TaskStatus;
+
+import eu.codinsanity.core.jpa.data.TaskEntity;
+import eu.codinsanity.core.jpa.data.TaskStatus;
+import eu.codinsanity.core.services.TaskService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -12,7 +13,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Optional;
 
 @Path("tasks")
 public class TaskResource {
