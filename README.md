@@ -1,5 +1,9 @@
 # JavaEE Transaction Course
 
+## Important
+This code relies heavily on artifacts specific to the SPF Finances/FOD Financieen.
+It can't therefore be compiled outside that environment.
+
 This project aims to illustrate the different uses of transactions within JavaEE.
 
 ## Installation
